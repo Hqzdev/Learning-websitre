@@ -1,11 +1,15 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Menu, X, Zap } from 'lucide-react'
+import { Menu, X, Zap, User, LogOut, Settings } from 'lucide-react'
+import { useAuth } from '../../contexts/AuthContext'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
+  const { user, isAuthenticated, logout } = useAuth()
 
   const navigation = [
     { name: 'Главная', href: '/' },
@@ -13,6 +17,12 @@ const Header = () => {
     { name: 'API', href: '/docs' },
     { name: 'Поддержка', href: '/support' },
   ]
+
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+    setIsUserMenuOpen(false)
+  }
 
   return (
     <motion.header
@@ -48,20 +58,66 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Auth Buttons */}
+          {/* Auth Buttons / User Menu */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link
-              to="/login"
-              className="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200"
-            >
-              Войти
-            </Link>
-            <Link
-              to="/register"
-              className="button-primary text-sm"
-            >
-              Начать бесплатно
-            </Link>
+            {isAuthenticated ? (
+              <div className="relative">
+                <button
+                  onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                  className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-200"
+                >
+                  <div className="w-8 h-8 bg-gradient-to-r from-primary-500 to-purple-600 rounded-full flex items-center justify-center">
+                    <User className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-sm font-medium">{user?.username}</span>
+                </button>
+
+                {/* User Dropdown Menu */}
+                {isUserMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute right-0 mt-2 w-48 glass-effect rounded-lg shadow-lg py-2 z-50"
+                  >
+                    <div className="px-4 py-2 border-b border-white/10">
+                      <p className="text-sm font-medium text-white">{user?.fullName || user?.username}</p>
+                      <p className="text-xs text-gray-400">{user?.email}</p>
+                    </div>
+                    <Link
+                      to="/dashboard"
+                      className="flex items-center px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors duration-200"
+                      onClick={() => setIsUserMenuOpen(false)}
+                    >
+                      <Settings className="w-4 h-4 mr-3" />
+                      Панель управления
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="flex items-center w-full px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors duration-200"
+                    >
+                      <LogOut className="w-4 h-4 mr-3" />
+                      Выйти
+                    </button>
+                  </motion.div>
+                )}
+              </div>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200"
+                >
+                  Войти
+                </Link>
+                <Link
+                  to="/register"
+                  className="button-primary text-sm"
+                >
+                  Начать бесплатно
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile menu button */}

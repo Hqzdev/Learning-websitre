@@ -1,23 +1,55 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Mail, Lock, Eye, EyeOff, User, Github, Chrome, Check } from 'lucide-react'
+import { Mail, Lock, Eye, EyeOff, User, Github, Chrome, Check, AlertCircle } from 'lucide-react'
+import { useAuth } from '../contexts/AuthContext'
 
 const RegisterPage = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
   const [formData, setFormData] = useState({
-    name: '',
+    username: '',
     email: '',
     password: '',
     confirmPassword: '',
+    fullName: '',
     agreeToTerms: false
   })
+  const { register } = useAuth()
+  const navigate = useNavigate()
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle registration logic here
-    console.log('Register:', formData)
+    setIsLoading(true)
+    setError('')
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Пароли не совпадают')
+      setIsLoading(false)
+      return
+    }
+
+    if (!formData.agreeToTerms) {
+      setError('Необходимо согласиться с условиями использования')
+      setIsLoading(false)
+      return
+    }
+
+    try {
+      await register({
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+        fullName: formData.fullName
+      })
+      navigate('/dashboard')
+    } catch (error: any) {
+      setError(error.message || 'Ошибка регистрации')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,25 +91,55 @@ const RegisterPage = () => {
           className="glass-effect rounded-2xl p-8"
         >
           <form className="space-y-6" onSubmit={handleSubmit}>
-            {/* Name Field */}
+            {/* Error Message */}
+            {error && (
+              <div className="flex items-center space-x-2 p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
+                <AlertCircle className="w-5 h-5 text-red-400" />
+                <span className="text-red-400 text-sm">{error}</span>
+              </div>
+            )}
+
+            {/* Username Field */}
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                Имя
+              <label htmlFor="username" className="block text-sm font-medium text-gray-300 mb-2">
+                Имя пользователя
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <User className="h-5 w-5 text-gray-400" />
                 </div>
                 <input
-                  id="name"
-                  name="name"
+                  id="username"
+                  name="username"
                   type="text"
-                  autoComplete="name"
+                  autoComplete="username"
                   required
-                  value={formData.name}
+                  value={formData.username}
                   onChange={handleInputChange}
                   className="block w-full pl-10 pr-3 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Ваше имя"
+                  placeholder="your_username"
+                />
+              </div>
+            </div>
+
+            {/* Full Name Field */}
+            <div>
+              <label htmlFor="fullName" className="block text-sm font-medium text-gray-300 mb-2">
+                Полное имя
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <User className="h-5 w-5 text-gray-400" />
+                </div>
+                <input
+                  id="fullName"
+                  name="fullName"
+                  type="text"
+                  autoComplete="name"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  className="block w-full pl-10 pr-3 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                  placeholder="Ваше полное имя"
                 />
               </div>
             </div>
@@ -220,12 +282,12 @@ const RegisterPage = () => {
             {/* Submit Button */}
             <motion.button
               type="submit"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              disabled={!formData.agreeToTerms || formData.password !== formData.confirmPassword}
+              disabled={isLoading || !formData.agreeToTerms || formData.password !== formData.confirmPassword}
+              whileHover={{ scale: isLoading ? 1 : 1.02 }}
+              whileTap={{ scale: isLoading ? 1 : 0.98 }}
               className="w-full button-primary py-3 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Создать аккаунт
+              {isLoading ? 'Создание аккаунта...' : 'Создать аккаунт'}
             </motion.button>
           </form>
 
