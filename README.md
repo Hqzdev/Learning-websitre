@@ -1,187 +1,189 @@
-# AI Model Builder
+# Cognify - AI SaaS Platform
 
-Полностью проработанный сайт для создания и обучения AI моделей в стиле OpenAI с минималистичным дизайном, анимациями и удобным личным кабинетом.
+A minimalistic black and white AI SaaS platform built with React, TypeScript, and Tailwind CSS. Create, train, and deploy AI models in minutes.
 
-## 🎨 Особенности дизайна
+## Features
 
-- **Минималистичный стиль** в духе openai.com, anthropic.com, perplexity.ai
-- **Цветовая схема**: черный фон, фиолетовые/синие акценты, белый текст
-- **Современные шрифты**: Inter, Neue Haas, SF Pro
-- **Плавные анимации**: fade-in, hover-эффекты, parallax при скролле
-- **Абстрактные иллюстрации**: векторные 3D-объекты, световые эффекты
-- **Адаптивный дизайн** для всех устройств
+### 🏠 Landing Page
+- Hero section with clear value proposition
+- How it works (3-step process)
+- Pricing plans (Basic, Pro, Enterprise)
+- Customer testimonials
+- Clean, minimalistic design
 
-## 🚀 Технологии
+### 🔐 Authentication
+- User registration and login
+- Social login (Google, GitHub)
+- Protected routes
+- Role-based access (User/Admin)
 
-- **React 18** с TypeScript
-- **Vite** для быстрой разработки
-- **Tailwind CSS** для стилизации
-- **Framer Motion** для анимаций
-- **React Router** для навигации
-- **Lucide React** для иконок
+### 📊 Dashboard
+- **Dashboard Home**: Overview, quick actions, recent activity
+- **My Models**: Manage AI models, view training status
+- **Upload Data**: Drag-and-drop file upload (PDF, DOCX, TXT, CSV)
+- **Training**: Configure and start model training
+- **Testing**: Chat interface to test trained models
+- **API**: Generate API keys, view documentation
+- **Subscription**: Manage billing and plans
+- **Settings**: Account settings and preferences
 
-## 📑 Структура проекта
+### 👨‍💼 Admin Panel
+- User management
+- System monitoring
+- Financial statistics
+- Training logs
+- System alerts
 
-### Главная страница (Landing Page)
-- **Hero-блок** с призывом к действию
-- **Как это работает** (3 шага)
-- **Выбор модели** (2B, 7B, 13B, 16B)
-- **Возможности платформы**
-- **Тарифные планы**
-- **Отзывы клиентов**
-- **FAQ**
-- **CTA секция**
+## Tech Stack
 
-### Аутентификация
-- **Регистрация** с валидацией
-- **Вход** с OAuth интеграцией
-- **Восстановление пароля**
+- **Frontend**: React 18, TypeScript
+- **Styling**: Tailwind CSS
+- **Routing**: React Router DOM
+- **Icons**: Lucide React
+- **Build Tool**: Vite
 
-### Личный кабинет (Dashboard)
-- **Главная** - обзор и статистика
-- **Мои модели** - управление AI моделями
-- **Загрузить данные** - drag-and-drop интерфейс
-- **Обучение** - настройка и запуск обучения
-- **Тестирование** - чат с AI моделью
-- **API** - управление ключами и документация
-- **Подписка** - управление тарифом
-- **Настройки** - профиль и безопасность
+## Getting Started
 
-### Админ-панель
-- **Панель управления** - обзор системы
-- **Управление пользователями**
-- **Мониторинг системы**
-- **Логи обучения**
-- **Финансовая статистика**
+### Prerequisites
+- Node.js 16+ 
+- npm or yarn
 
-## 🎯 Функциональность
+### Installation
 
-### Для пользователей
-- Создание и обучение AI моделей
-- Загрузка данных в различных форматах
-- Тестирование моделей через чат
-- API интеграция
-- Управление подпиской
-- Аналитика использования
-
-### Для администраторов
-- Управление пользователями
-- Мониторинг системы
-- Просмотр логов обучения
-- Финансовая аналитика
-- Управление ресурсами
-
-## 🛠 Установка и запуск
-
-1. **Клонирование репозитория**
+1. Clone the repository:
 ```bash
 git clone <repository-url>
 cd Learning-websitre
 ```
 
-2. **Установка зависимостей**
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-3. **Запуск в режиме разработки**
+3. Start the development server:
 ```bash
 npm run dev
 ```
 
-4. **Сборка для продакшена**
+4. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+### Build for Production
+
 ```bash
 npm run build
 ```
 
-5. **Предварительный просмотр сборки**
-```bash
-npm run preview
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Layout.tsx              # Main layout with sidebar
+│   └── ProtectedRoute.tsx      # Route protection
+├── contexts/
+│   └── AuthContext.tsx         # Authentication context
+├── pages/
+│   ├── HomePage.tsx            # Landing page
+│   ├── LoginPage.tsx           # Login form
+│   ├── RegisterPage.tsx        # Registration form
+│   ├── Dashboard.tsx           # Dashboard router
+│   ├── dashboard/              # Dashboard pages
+│   │   ├── DashboardHome.tsx
+│   │   ├── MyModels.tsx
+│   │   ├── UploadData.tsx
+│   │   ├── Training.tsx
+│   │   ├── Testing.tsx
+│   │   ├── API.tsx
+│   │   ├── Subscription.tsx
+│   │   └── Settings.tsx
+│   └── AdminPanel.tsx         # Admin dashboard
+├── App.tsx                     # Main app component
+├── main.tsx                    # App entry point
+└── index.css                   # Global styles
 ```
 
-## 📱 Адаптивность
+## Design System
 
-Сайт полностью адаптирован для:
-- **Desktop** (1200px+)
-- **Tablet** (768px - 1199px)
-- **Mobile** (320px - 767px)
+### Colors
+- **Primary**: Black (#000000)
+- **Background**: White (#FFFFFF)
+- **Text**: Black (#000000)
+- **Secondary Text**: Gray (#6B7280)
+- **Borders**: Light Gray (#E5E7EB)
 
-## 🎨 Компоненты
+### Components
+- **Buttons**: 
+  - Primary: Black background, white text
+  - Secondary: Black border, black text
+- **Cards**: White background, gray border, rounded corners
+- **Inputs**: Gray border, focus states with black ring
 
-### UI компоненты
-- `Header` - навигация и меню
-- `Footer` - подвал с ссылками
-- `Layout` - основная разметка
+### Typography
+- **Font**: Inter (Google Fonts)
+- **Headings**: Bold, black
+- **Body**: Regular, gray for secondary text
 
-### Секции главной страницы
-- `HeroSection` - главный баннер
-- `HowItWorksSection` - как это работает
-- `ModelSelectionSection` - выбор модели
-- `FeaturesSection` - возможности
-- `PricingSection` - тарифы
-- `TestimonialsSection` - отзывы
-- `FAQSection` - часто задаваемые вопросы
-- `CTASection` - призыв к действию
+## User Flow
 
-### Компоненты дашборда
-- `DashboardLayout` - разметка кабинета
-- `DashboardHome` - главная кабинета
-- `MyModels` - управление моделями
-- `UploadData` - загрузка данных
-- `Training` - обучение моделей
-- `Testing` - тестирование
-- `API` - управление API
-- `Subscription` - подписка
-- `Settings` - настройки
+1. **Landing Page** → User sees value proposition
+2. **Registration** → User creates account
+3. **Dashboard** → User uploads data and trains models
+4. **Testing** → User tests trained models
+5. **API Integration** → User integrates models into applications
+6. **Subscription** → User manages billing
 
-### Админ-панель
-- `AdminLayout` - разметка админки
-- `AdminDashboard` - главная админки
-- `UserManagement` - управление пользователями
-- `SystemMonitoring` - мониторинг
-- `TrainingLogs` - логи обучения
-- `FinancialStats` - финансовая статистика
+## Features by Plan
 
-## 🎭 Анимации
+### Basic ($49/month)
+- 2B model access
+- 10GB storage
+- 100 API calls/month
+- Email support
 
-Используются плавные анимации с Framer Motion:
-- **Fade-in** при загрузке
-- **Slide-up/down** для секций
-- **Scale-in** для карточек
-- **Hover-эффекты** для интерактивных элементов
-- **Parallax** при скролле
-- **Loading states** для форм
+### Pro ($99/month)
+- 7B model access
+- 50GB storage
+- 1000 API calls/month
+- Priority support
+- Advanced analytics
 
-## 🔧 Настройка
+### Enterprise ($299/month)
+- All model sizes (up to 16B)
+- Unlimited storage
+- Unlimited API calls
+- 24/7 support
+- Custom integrations
+- Dedicated infrastructure
 
-### Tailwind CSS
-Настроен с кастомными цветами и анимациями:
-- Primary (синий)
-- Purple (фиолетовый)
-- Dark (темные оттенки)
+## Development
 
-### TypeScript
-Строгая типизация для всех компонентов и функций.
+### Available Scripts
 
-### Vite
-Быстрая сборка и горячая перезагрузка в режиме разработки.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-## 📄 Лицензия
+### Code Style
 
-MIT License
+- TypeScript for type safety
+- Functional components with hooks
+- Tailwind CSS for styling
+- ESLint for code quality
 
-## 🤝 Вклад в проект
+## Contributing
 
-1. Fork репозитория
-2. Создайте feature branch
-3. Commit изменения
-4. Push в branch
-5. Создайте Pull Request
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-## 📞 Поддержка
+## License
 
-Для вопросов и поддержки обращайтесь к разработчику.
+This project is licensed under the MIT License.
 
----
+## Support
 
-**Создано с ❤️ для демонстрации современных веб-технологий**
+For support, email support@cognify.com or visit our documentation.

@@ -4,37 +4,32 @@
 
 @layer base {
   * {
-    @apply border-white/10;
+    @apply border-gray-200;
   }
   
   body {
-    @apply bg-dark-900 text-white font-sans;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-white text-black font-sans;
   }
   
-  html {
-    scroll-behavior: smooth;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
   }
 }
 
 @layer components {
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary-400 to-purple-500 bg-clip-text text-transparent;
+  .btn-primary {
+    @apply bg-black text-white px-6 py-3 rounded-2xl font-medium hover:bg-gray-800 transition-colors;
   }
   
-  .glass-effect {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  .btn-secondary {
+    @apply border-2 border-black text-black px-6 py-3 rounded-2xl font-medium hover:bg-black hover:text-white transition-colors;
   }
   
-  .card-hover {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary-500/20;
+  .card {
+    @apply bg-white border border-gray-200 rounded-2xl p-6;
   }
   
-  .button-primary {
-    @apply bg-gradient-to-r from-primary-500 to-purple-600 hover:from-primary-600 hover:to-purple-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary-500/25;
-  }
-  
-  .button-secondary {
-    @apply bg-transparent border-2 border-primary-500 text-primary-400 hover:bg-primary-500 hover:text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent;
   }
 }
