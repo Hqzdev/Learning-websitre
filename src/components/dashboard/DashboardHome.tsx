@@ -208,27 +208,27 @@ const DashboardHome = () => {
               </motion.div>
             </Link>
             
-            <Link to="/dashboard/testing">
+            <Link to="/dashboard/chat">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors duration-200 cursor-pointer"
               >
                 <MessageSquare className="w-8 h-8 text-green-400 mb-3" />
-                <div className="text-white font-medium text-sm">Тестировать</div>
-                <div className="text-gray-400 text-xs">Проверить модель</div>
+                <div className="text-white font-medium text-sm">Чат с моделью</div>
+                <div className="text-gray-400 text-xs">Общение с AI</div>
               </motion.div>
             </Link>
             
-            <Link to="/dashboard/api">
+            <Link to="/dashboard/analytics">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors duration-200 cursor-pointer"
               >
-                <Brain className="w-8 h-8 text-orange-400 mb-3" />
-                <div className="text-white font-medium text-sm">API ключи</div>
-                <div className="text-gray-400 text-xs">Управление доступом</div>
+                <TrendingUp className="w-8 h-8 text-orange-400 mb-3" />
+                <div className="text-white font-medium text-sm">Аналитика</div>
+                <div className="text-gray-400 text-xs">Статистика и метрики</div>
               </motion.div>
             </Link>
           </div>

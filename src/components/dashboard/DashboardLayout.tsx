@@ -13,7 +13,12 @@ import {
   Menu,
   X,
   LogOut,
-  User
+  User,
+  BarChart3,
+  Database,
+  Bot,
+  Workflow,
+  Sparkles
 } from 'lucide-react'
 import { useAuth } from '../../contexts/AuthContext'
 
@@ -31,11 +36,14 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const navigation = [
     { name: 'Главная', href: '/dashboard', icon: Home },
     { name: 'Мои модели', href: '/dashboard/models', icon: Brain },
-    { name: 'Загрузить данные', href: '/dashboard/upload', icon: Upload },
-    { name: 'Обучение', href: '/dashboard/training', icon: Zap },
-    { name: 'Тестирование', href: '/dashboard/testing', icon: MessageSquare },
+    { name: 'Управление данными', href: '/dashboard/data', icon: Database },
+    { name: 'Продвинутое обучение', href: '/dashboard/advanced-training', icon: Zap },
+    { name: 'Чат с моделью', href: '/dashboard/chat', icon: MessageSquare },
+    { name: 'Интеграции', href: '/dashboard/integrations', icon: Bot },
+    { name: 'Аналитика', href: '/dashboard/analytics', icon: BarChart3 },
+    { name: 'AI-ассистент', href: '/dashboard/ai-assistant', icon: Sparkles },
+    { name: 'Бизнес-функции', href: '/dashboard/business', icon: CreditCard },
     { name: 'API', href: '/dashboard/api', icon: Code },
-    { name: 'Подписка', href: '/dashboard/subscription', icon: CreditCard },
     { name: 'Настройки', href: '/dashboard/settings', icon: Settings },
   ]
 
