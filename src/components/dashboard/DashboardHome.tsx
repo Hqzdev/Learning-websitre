@@ -16,33 +16,33 @@ const DashboardHome = () => {
   const recentActivity = [
     {
       type: 'training',
-      title: 'Модель "Техническая документация"',
-      description: 'Обучение завершено успешно',
-      time: '2 часа назад',
+      title: 'Technical Documentation Model',
+      description: 'Training completed successfully',
+      time: '2 hours ago',
       status: 'completed',
       icon: CheckCircle
     },
     {
       type: 'upload',
-      title: 'Загружен файл manual.pdf',
-      description: '5.2 МБ, 120 страниц',
-      time: '4 часа назад',
+      title: 'Uploaded manual.pdf',
+      description: '5.2 MB, 120 pages',
+      time: '4 hours ago',
       status: 'completed',
       icon: Upload
     },
     {
       type: 'training',
-      title: 'Модель "FAQ база"',
-      description: 'Обучение в процессе...',
-      time: '6 часов назад',
+      title: 'FAQ Database Model',
+      description: 'Training in progress...',
+      time: '6 hours ago',
       status: 'in-progress',
       icon: Clock
     },
     {
       type: 'error',
-      title: 'Ошибка при обучении',
-      description: 'Недостаточно данных для обучения',
-      time: '1 день назад',
+      title: 'Training Error',
+      description: 'Insufficient data for training',
+      time: '1 day ago',
       status: 'error',
       icon: AlertCircle
     }
@@ -50,30 +50,30 @@ const DashboardHome = () => {
 
   const stats = [
     {
-      title: 'Активные модели',
+      title: 'Active Models',
       value: '3',
-      change: '+1 за неделю',
+      change: '+1 this week',
       icon: Brain,
       color: 'from-blue-500 to-cyan-500'
     },
     {
-      title: 'Загружено данных',
-      value: '2.4 ГБ',
-      change: '+500 МБ за неделю',
+      title: 'Data Uploaded',
+      value: '2.4 GB',
+      change: '+500 MB this week',
       icon: Upload,
       color: 'from-green-500 to-emerald-500'
     },
     {
-      title: 'Запросов к API',
+      title: 'API Requests',
       value: '1,247',
-      change: '+23% за неделю',
+      change: '+23% this week',
       icon: MessageSquare,
       color: 'from-purple-500 to-pink-500'
     },
     {
-      title: 'Время обучения',
-      value: '12.5 ч',
-      change: '+3.2 ч за неделю',
+      title: 'Training Time',
+      value: '12.5h',
+      change: '+3.2h this week',
       icon: Zap,
       color: 'from-orange-500 to-red-500'
     }
@@ -91,10 +91,10 @@ const DashboardHome = () => {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-white mb-2">
-              Добро пожаловать, Иван! 👋
+              Welcome, John! 👋
             </h1>
             <p className="text-gray-300 text-lg">
-              Вот что происходит с вашими AI моделями сегодня
+              Here's what's happening with your AI models today
             </p>
           </div>
           <Link to="/dashboard/upload">
@@ -104,7 +104,7 @@ const DashboardHome = () => {
               className="button-primary flex items-center space-x-2"
             >
               <Plus className="w-5 h-5" />
-              <span>Создать модель</span>
+              <span>Create Model</span>
             </motion.button>
           </Link>
         </div>
@@ -146,9 +146,9 @@ const DashboardHome = () => {
           className="glass-effect rounded-2xl p-6"
         >
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold text-white">Последние действия</h2>
+            <h2 className="text-xl font-bold text-white">Recent Activity</h2>
             <Link to="/dashboard/models" className="text-primary-400 hover:text-primary-300 text-sm">
-              Посмотреть все
+              View All
             </Link>
           </div>
           <div className="space-y-4">
@@ -182,7 +182,7 @@ const DashboardHome = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="glass-effect rounded-2xl p-6"
         >
-          <h2 className="text-xl font-bold text-white mb-6">Быстрые действия</h2>
+          <h2 className="text-xl font-bold text-white mb-6">Quick Actions</h2>
           <div className="grid grid-cols-2 gap-4">
             <Link to="/dashboard/upload">
               <motion.div
@@ -191,8 +191,8 @@ const DashboardHome = () => {
                 className="p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors duration-200 cursor-pointer"
               >
                 <Upload className="w-8 h-8 text-primary-400 mb-3" />
-                <div className="text-white font-medium text-sm">Загрузить данные</div>
-                <div className="text-gray-400 text-xs">Добавить новые файлы</div>
+                <div className="text-white font-medium text-sm">Upload Data</div>
+                <div className="text-gray-400 text-xs">Add new files</div>
               </motion.div>
             </Link>
             
@@ -203,8 +203,8 @@ const DashboardHome = () => {
                 className="p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors duration-200 cursor-pointer"
               >
                 <Zap className="w-8 h-8 text-purple-400 mb-3" />
-                <div className="text-white font-medium text-sm">Обучить модель</div>
-                <div className="text-gray-400 text-xs">Создать новую модель</div>
+                <div className="text-white font-medium text-sm">Train Model</div>
+                <div className="text-gray-400 text-xs">Create new model</div>
               </motion.div>
             </Link>
             
@@ -215,8 +215,8 @@ const DashboardHome = () => {
                 className="p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors duration-200 cursor-pointer"
               >
                 <MessageSquare className="w-8 h-8 text-green-400 mb-3" />
-                <div className="text-white font-medium text-sm">Чат с моделью</div>
-                <div className="text-gray-400 text-xs">Общение с AI</div>
+                <div className="text-white font-medium text-sm">Model Chat</div>
+                <div className="text-gray-400 text-xs">Chat with AI</div>
               </motion.div>
             </Link>
             
@@ -227,8 +227,8 @@ const DashboardHome = () => {
                 className="p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors duration-200 cursor-pointer"
               >
                 <TrendingUp className="w-8 h-8 text-orange-400 mb-3" />
-                <div className="text-white font-medium text-sm">Аналитика</div>
-                <div className="text-gray-400 text-xs">Статистика и метрики</div>
+                <div className="text-white font-medium text-sm">Analytics</div>
+                <div className="text-gray-400 text-xs">Statistics and metrics</div>
               </motion.div>
             </Link>
           </div>
@@ -242,9 +242,9 @@ const DashboardHome = () => {
         transition={{ duration: 0.5, delay: 0.6 }}
         className="glass-effect rounded-2xl p-8"
       >
-        <h2 className="text-2xl font-bold text-white mb-4">Начните работу</h2>
+        <h2 className="text-2xl font-bold text-white mb-4">Get Started</h2>
         <p className="text-gray-300 mb-6">
-          Создайте свою первую AI модель за несколько простых шагов
+          Create your first AI model in a few simple steps
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link to="/dashboard/upload">
@@ -254,7 +254,7 @@ const DashboardHome = () => {
               className="button-primary flex items-center space-x-2"
             >
               <Upload className="w-5 h-5" />
-              <span>1. Загрузить данные</span>
+              <span>1. Upload Data</span>
             </motion.button>
           </Link>
           <Link to="/dashboard/training">
@@ -264,7 +264,7 @@ const DashboardHome = () => {
               className="button-secondary flex items-center space-x-2"
             >
               <Zap className="w-5 h-5" />
-              <span>2. Обучить модель</span>
+              <span>2. Train Model</span>
             </motion.button>
           </Link>
           <Link to="/dashboard/testing">
@@ -274,7 +274,7 @@ const DashboardHome = () => {
               className="button-secondary flex items-center space-x-2"
             >
               <MessageSquare className="w-5 h-5" />
-              <span>3. Протестировать</span>
+              <span>3. Test</span>
             </motion.button>
           </Link>
         </div>

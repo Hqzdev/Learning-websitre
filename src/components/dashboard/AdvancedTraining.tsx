@@ -60,9 +60,9 @@ const AdvancedTraining: React.FC = () => {
   const templates: TrainingTemplate[] = [
     {
       id: 'legal',
-      name: 'Юридическая модель',
-      description: 'Специализированная модель для работы с правовыми документами',
-      category: 'Профессиональные',
+      name: 'Legal Model',
+      description: 'Specialized model for working with legal documents',
+      category: 'Professional',
       icon: BookOpenIcon,
       settings: {
         modelSize: '7B',
@@ -73,9 +73,9 @@ const AdvancedTraining: React.FC = () => {
     },
     {
       id: 'technical',
-      name: 'Техническая документация',
-      description: 'Модель для обработки технических документов и инструкций',
-      category: 'Технические',
+      name: 'Technical Documentation',
+      description: 'Model for processing technical documents and instructions',
+      category: 'Technical',
       icon: DocumentTextIcon,
       settings: {
         modelSize: '3B',
@@ -86,9 +86,9 @@ const AdvancedTraining: React.FC = () => {
     },
     {
       id: 'faq',
-      name: 'FAQ-база',
-      description: 'Модель для ответов на часто задаваемые вопросы',
-      category: 'Поддержка',
+      name: 'FAQ Database',
+      description: 'Model for answering frequently asked questions',
+      category: 'Support',
       icon: SparklesIcon,
       settings: {
         modelSize: '2B',
@@ -138,17 +138,17 @@ const AdvancedTraining: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto p-6">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Продвинутое обучение</h1>
-        <p className="text-gray-600">Fine-tuning, RAG и потоковое обучение для максимальной эффективности</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Advanced Training</h1>
+        <p className="text-gray-600">Fine-tuning, RAG and streaming training for maximum efficiency</p>
       </div>
 
       {/* Tabs */}
       <div className="border-b border-gray-200 mb-8">
         <nav className="-mb-px flex space-x-8">
           {[
-            { id: 'templates', name: 'Шаблоны', icon: BookOpenIcon },
-            { id: 'jobs', name: 'Задачи обучения', icon: CpuChipIcon },
-            { id: 'settings', name: 'Настройки', icon: CogIcon }
+            { id: 'templates', name: 'Templates', icon: BookOpenIcon },
+            { id: 'jobs', name: 'Training Jobs', icon: CpuChipIcon },
+            { id: 'settings', name: 'Settings', icon: CogIcon }
           ].map((tab) => (
             <button
               key={tab.id}
@@ -175,7 +175,7 @@ const AdvancedTraining: React.FC = () => {
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Smart Train</h3>
                 <p className="text-gray-600 mb-4">
-                  Автоматическое обучение без настройки параметров. AI сам выберет оптимальные настройки.
+                  Automatic training without parameter configuration. AI will choose optimal settings.
                 </p>
                 <button
                   onClick={handleSmartTrain}
@@ -223,7 +223,7 @@ const AdvancedTraining: React.FC = () => {
                   onClick={() => handleStartTraining(template)}
                   className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
                 >
-                  Начать обучение
+                  Start Training
                 </button>
               </div>
             ))}
@@ -233,61 +233,61 @@ const AdvancedTraining: React.FC = () => {
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Fine-tuning + RAG</h3>
             <p className="text-gray-600 mb-4">
-              Комбинируйте обучение модели с подключением базы знаний для максимальной точности
+              Combine model training with knowledge base connection for maximum accuracy
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <h4 className="font-medium text-gray-900">Fine-tuning настройки</h4>
-                <div className="space-y-3">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Размер модели</label>
-                    <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                      <option>2B (быстро, базовое качество)</option>
-                      <option>7B (сбалансированно)</option>
-                      <option>13B (высокое качество)</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Количество эпох</label>
-                    <input type="number" defaultValue="3" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <h4 className="font-medium text-gray-900">RAG настройки</h4>
-                <div className="space-y-3">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">База знаний</label>
-                    <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                      <option>Выберите датасет</option>
-                      <option>Legal Documents</option>
-                      <option>Company Wiki</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Количество релевантных документов</label>
-                    <input type="number" defaultValue="5" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
+                <div className="space-y-4">
+                  <h4 className="font-medium text-gray-900">Fine-tuning Settings</h4>
+                  <div className="space-y-3">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Model Size</label>
+                      <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <option>2B (fast, basic quality)</option>
+                        <option>7B (balanced)</option>
+                        <option>13B (high quality)</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Number of Epochs</label>
+                      <input type="number" defaultValue="3" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
+                    </div>
                   </div>
                 </div>
-              </div>
+                <div className="space-y-4">
+                  <h4 className="font-medium text-gray-900">RAG Settings</h4>
+                  <div className="space-y-3">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Knowledge Base</label>
+                      <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <option>Select dataset</option>
+                        <option>Legal Documents</option>
+                        <option>Company Wiki</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Number of Relevant Documents</label>
+                      <input type="number" defaultValue="5" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
+                    </div>
+                  </div>
+                </div>
             </div>
             <button className="mt-6 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">
-              Начать комбинированное обучение
+              Start Combined Training
             </button>
           </div>
 
           {/* Streaming Training */}
           <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Потоковое обучение</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Streaming Training</h3>
             <p className="text-gray-600 mb-4">
-              Автоматически добавляйте новые данные к модели без перезапуска обучения
+              Automatically add new data to the model without restarting training
             </p>
             <div className="flex items-center space-x-4">
               <button className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700">
-                Включить потоковое обучение
+                Enable Streaming Training
               </button>
               <span className="text-sm text-gray-500">
-                Новые данные будут автоматически добавляться к модели
+                New data will be automatically added to the model
               </span>
             </div>
           </div>

@@ -36,7 +36,7 @@ const ModelChat: React.FC = () => {
     {
       id: '1',
       type: 'assistant',
-      content: 'Привет! Я ваш обученный AI-ассистент. Чем могу помочь?',
+      content: 'Hello! I am your trained AI assistant. How can I help you?',
       timestamp: new Date(),
       confidence: 95
     }
@@ -77,7 +77,7 @@ const ModelChat: React.FC = () => {
   ];
 
   const languages = [
-    { code: 'auto', name: 'Автоопределение' },
+    { code: 'auto', name: 'Auto-detect' },
     { code: 'ru', name: 'Русский' },
     { code: 'en', name: 'English' },
     { code: 'es', name: 'Español' },
@@ -120,11 +120,11 @@ const ModelChat: React.FC = () => {
 
   const generateAIResponse = (input: string): string => {
     const responses = [
-      'Основываясь на предоставленной документации, могу предложить следующее решение...',
-      'Согласно корпоративным политикам, рекомендую следующий подход...',
-      'В нашей базе знаний есть несколько релевантных случаев. Вот что я нашел...',
-      'Это интересный вопрос. Позвольте мне проанализировать доступную информацию...',
-      'На основе обучения на ваших данных, вот мой ответ...'
+      'Based on the provided documentation, I can suggest the following solution...',
+      'According to corporate policies, I recommend the following approach...',
+      'In our knowledge base, there are several relevant cases. Here's what I found...',
+      'This is an interesting question. Let me analyze the available information...',
+      'Based on training on your data, here's my answer...'
     ];
     return responses[Math.floor(Math.random() * responses.length)];
   };
@@ -134,7 +134,7 @@ const ModelChat: React.FC = () => {
     // Simulate voice recording
     if (!isRecording) {
       setTimeout(() => {
-        setInputMessage('Голосовое сообщение распознано');
+        setInputMessage('Voice message recognized');
         setIsRecording(false);
       }, 2000);
     }
@@ -165,8 +165,8 @@ const ModelChat: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto p-6">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Чат с моделью</h1>
-        <p className="text-gray-600">Общайтесь с вашей обученной моделью в реальном времени</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Model Chat</h1>
+        <p className="text-gray-600">Communicate with your trained model in real-time</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
@@ -185,14 +185,14 @@ const ModelChat: React.FC = () => {
                       {models.find(m => m.id === selectedModel)?.name}
                     </h3>
                     <p className="text-sm text-gray-500">
-                      Точность: {models.find(m => m.id === selectedModel)?.accuracy}%
+                      Accuracy: {models.find(m => m.id === selectedModel)?.accuracy}%
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="flex items-center space-x-1 text-sm text-gray-500">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span>Онлайн</span>
+                    <span>Online</span>
                   </div>
                 </div>
               </div>
@@ -276,7 +276,7 @@ const ModelChat: React.FC = () => {
                     value={inputMessage}
                     onChange={(e) => setInputMessage(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    placeholder="Введите сообщение..."
+                    placeholder="Type a message..."
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
                     rows={2}
                   />
@@ -289,7 +289,7 @@ const ModelChat: React.FC = () => {
                         ? 'bg-red-100 text-red-600' 
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                     }`}
-                    title="Голосовой ввод"
+                    title="Voice input"
                   >
                     <MicrophoneIcon className="h-5 w-5" />
                   </button>
@@ -310,7 +310,7 @@ const ModelChat: React.FC = () => {
         <div className="space-y-6">
           {/* Model Selection */}
           <div className="bg-white rounded-lg border border-gray-200 p-4">
-            <h3 className="font-semibold text-gray-900 mb-3">Выберите модель</h3>
+            <h3 className="font-semibold text-gray-900 mb-3">Select Model</h3>
             <div className="space-y-2">
               {models.map((model) => (
                 <button
@@ -339,7 +339,7 @@ const ModelChat: React.FC = () => {
 
           {/* Language Settings */}
           <div className="bg-white rounded-lg border border-gray-200 p-4">
-            <h3 className="font-semibold text-gray-900 mb-3">Язык</h3>
+            <h3 className="font-semibold text-gray-900 mb-3">Language</h3>
             <select
               value={selectedLanguage}
               onChange={(e) => setSelectedLanguage(e.target.value)}
@@ -355,33 +355,33 @@ const ModelChat: React.FC = () => {
 
           {/* Quick Actions */}
           <div className="bg-white rounded-lg border border-gray-200 p-4">
-            <h3 className="font-semibold text-gray-900 mb-3">Быстрые действия</h3>
+            <h3 className="font-semibold text-gray-900 mb-3">Quick Actions</h3>
             <div className="space-y-2">
               <button className="w-full text-left p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg flex items-center space-x-2">
                 <DocumentTextIcon className="h-4 w-4" />
-                <span>Загрузить документ</span>
+                <span>Upload Document</span>
               </button>
               <button className="w-full text-left p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg flex items-center space-x-2">
                 <LightBulbIcon className="h-4 w-4" />
-                <span>Примеры вопросов</span>
+                <span>Example Questions</span>
               </button>
               <button className="w-full text-left p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg flex items-center space-x-2">
                 <ArrowPathIcon className="h-4 w-4" />
-                <span>Очистить историю</span>
+                <span>Clear History</span>
               </button>
             </div>
           </div>
 
           {/* Context Info */}
           <div className="bg-blue-50 rounded-lg border border-blue-200 p-4">
-            <h3 className="font-semibold text-blue-900 mb-2">Контекстное обучение</h3>
+            <h3 className="font-semibold text-blue-900 mb-2">Contextual Learning</h3>
             <p className="text-sm text-blue-700 mb-3">
-              Модель запоминает предыдущие ответы и историю запросов для более точных ответов.
+              The model remembers previous answers and query history for more accurate responses.
             </p>
             <div className="text-xs text-blue-600">
-              <p>• Запоминает контекст разговора</p>
-              <p>• Учитывает предыдущие вопросы</p>
-              <p>• Адаптируется к стилю общения</p>
+              <p>• Remembers conversation context</p>
+              <p>• Considers previous questions</p>
+              <p>• Adapts to communication style</p>
             </div>
           </div>
         </div>

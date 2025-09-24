@@ -105,17 +105,17 @@ const DataManagement: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto p-6">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Управление данными</h1>
-        <p className="text-gray-600">Загружайте, обрабатывайте и оптимизируйте ваши датасеты</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Data Management</h1>
+        <p className="text-gray-600">Upload, process and optimize your datasets</p>
       </div>
 
       {/* Tabs */}
       <div className="border-b border-gray-200 mb-8">
         <nav className="-mb-px flex space-x-8">
           {[
-            { id: 'upload', name: 'Загрузка', icon: CloudUploadIcon },
-            { id: 'datasets', name: 'Мои датасеты', icon: DocumentTextIcon },
-            { id: 'optimize', name: 'Оптимизация', icon: PencilIcon }
+            { id: 'upload', name: 'Upload', icon: CloudUploadIcon },
+            { id: 'datasets', name: 'My Datasets', icon: DocumentTextIcon },
+            { id: 'optimize', name: 'Optimization', icon: PencilIcon }
           ].map((tab) => (
             <button
               key={tab.id}
@@ -138,22 +138,22 @@ const DataManagement: React.FC = () => {
         <div className="space-y-8">
           {/* File Upload */}
           <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Загрузка файлов</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">File Upload</h3>
             <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
               <CloudUploadIcon className="mx-auto h-12 w-12 text-gray-400 mb-4" />
-              <p className="text-gray-600 mb-4">Перетащите файлы сюда или нажмите для выбора</p>
+              <p className="text-gray-600 mb-4">Drag files here or click to select</p>
               <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                Выбрать файлы
+                Choose Files
               </button>
               <p className="text-sm text-gray-500 mt-2">
-                Поддерживаются: PDF, DOC, TXT, CSV, JSON (до 100MB)
+                Supported: PDF, DOC, TXT, CSV, JSON (up to 100MB)
               </p>
             </div>
           </div>
 
           {/* Website Parser */}
           <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Парсер сайтов</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Website Parser</h3>
             <div className="flex space-x-4">
               <div className="flex-1">
                 <input
@@ -169,17 +169,17 @@ const DataManagement: React.FC = () => {
                 className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 flex items-center space-x-2"
               >
                 <GlobeAltIcon className="h-5 w-5" />
-                <span>Парсить</span>
+                <span>Parse</span>
               </button>
             </div>
             <p className="text-sm text-gray-500 mt-2">
-              Система автоматически извлечет контент и подготовит датасет
+              System will automatically extract content and prepare dataset
             </p>
           </div>
 
           {/* Cloud Integration */}
           <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Интеграция с облаками</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Cloud Integration</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 { name: 'Google Drive', color: 'bg-blue-500' },
@@ -205,21 +205,21 @@ const DataManagement: React.FC = () => {
                 onClick={handleCloudImport}
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
               >
-                Импортировать из {selectedCloud}
+                Import from {selectedCloud}
               </button>
             )}
           </div>
 
           {/* Auto Translation */}
           <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Автоперевод датасета</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Auto Translation</h3>
             <div className="flex space-x-4">
               <select
                 value={targetLanguage}
                 onChange={(e) => setTargetLanguage(e.target.value)}
                 className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               >
-                <option value="">Выберите язык</option>
+                <option value="">Select language</option>
                 <option value="English">English</option>
                 <option value="Russian">Русский</option>
                 <option value="Spanish">Español</option>
@@ -231,7 +231,7 @@ const DataManagement: React.FC = () => {
                 className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
               >
                 <LanguageIcon className="h-5 w-5" />
-                <span>Перевести</span>
+                <span>Translate</span>
               </button>
             </div>
           </div>
@@ -262,36 +262,36 @@ const DataManagement: React.FC = () => {
                           ? 'bg-yellow-100 text-yellow-800'
                           : 'bg-red-100 text-red-800'
                       }`}>
-                        {dataset.status === 'ready' ? 'Готов' : 
-                         dataset.status === 'processing' ? 'Обработка' : 'Ошибка'}
+                        {dataset.status === 'ready' ? 'Ready' : 
+                         dataset.status === 'processing' ? 'Processing' : 'Error'}
                       </span>
                     </div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="text-right">
-                    <p className="text-sm text-gray-500">Качество</p>
-                    <p className="font-semibold text-gray-900">{dataset.quality}%</p>
-                  </div>
+                    <div className="text-right">
+                      <p className="text-sm text-gray-500">Quality</p>
+                      <p className="font-semibold text-gray-900">{dataset.quality}%</p>
+                    </div>
                   <div className="flex space-x-2">
                     <button
                       onClick={() => handleDatasetOptimize(dataset.id)}
                       className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg"
-                      title="Оптимизировать"
+                      title="Optimize"
                     >
                       <PencilIcon className="h-5 w-5" />
                     </button>
                     <button
                       onClick={() => handleAutoTranslate(dataset.id)}
                       className="p-2 text-purple-600 hover:bg-purple-50 rounded-lg"
-                      title="Перевести"
+                      title="Translate"
                     >
                       <LanguageIcon className="h-5 w-5" />
                     </button>
                     <button
                       onClick={() => handleDatasetDelete(dataset.id)}
                       className="p-2 text-red-600 hover:bg-red-50 rounded-lg"
-                      title="Удалить"
+                      title="Delete"
                     >
                       <TrashIcon className="h-5 w-5" />
                     </button>
@@ -307,36 +307,36 @@ const DataManagement: React.FC = () => {
       {activeTab === 'optimize' && (
         <div className="space-y-6">
           <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Сжатие датасета</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Dataset Compression</h3>
             <p className="text-gray-600 mb-4">
-              Удаление повторов и очистка от мусора для улучшения качества обучения
+              Remove duplicates and clean data to improve training quality
             </p>
             <button className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700">
-              Оптимизировать все датасеты
+              Optimize All Datasets
             </button>
           </div>
 
           <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Визуальный редактор</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Visual Editor</h3>
             <p className="text-gray-600 mb-4">
-              Ручное редактирование и очистка данных с подсветкой текста
+              Manual editing and data cleaning with text highlighting
             </p>
             <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
-              Открыть редактор
+              Open Editor
             </button>
           </div>
 
           <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Рекомендации по улучшению</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Improvement Recommendations</h3>
             <div className="space-y-3">
               <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
                 <p className="text-yellow-800">
-                  <strong>Рекомендация:</strong> Добавьте больше инструкций по эксплуатации для улучшения качества ответов
+                  <strong>Recommendation:</strong> Add more operation instructions to improve answer quality
                 </p>
               </div>
               <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
                 <p className="text-blue-800">
-                  <strong>Совет:</strong> Увеличьте количество примеров вопросов и ответов для лучшего обучения
+                  <strong>Tip:</strong> Increase the number of question and answer examples for better training
                 </p>
               </div>
             </div>

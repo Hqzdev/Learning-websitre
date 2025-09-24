@@ -6,87 +6,87 @@ const PricingSection = () => {
     {
       name: 'Basic',
       price: '0',
-      period: 'навсегда',
-      description: 'Идеально для экспериментов и небольших проектов',
+      period: 'forever',
+      description: 'Perfect for experiments and small projects',
       features: [
-        'Модель 2B параметров',
-        '5 часов обучения в месяц',
-        '5 ГБ данных',
-        'Базовый API доступ',
-        'Email поддержка',
-        'До 1000 запросов/месяц',
-        'Загрузка файлов',
-        'Базовые шаблоны обучения',
-        'Простой чат с моделью'
+        '2B parameter model',
+        '5 training hours per month',
+        '5 GB data',
+        'Basic API access',
+        'Email support',
+        'Up to 1000 requests/month',
+        'File upload',
+        'Basic training templates',
+        'Simple model chat'
       ],
-      buttonText: 'Начать бесплатно',
+      buttonText: 'Start Free',
       popular: false,
       color: 'from-gray-500 to-gray-600'
     },
     {
       name: 'Pro',
       price: '89',
-      period: 'в месяц',
-      description: 'Для растущего бизнеса и профессиональных задач',
+      period: 'per month',
+      description: 'For growing businesses and professional tasks',
       features: [
-        'Модель 7B параметров',
-        '20 часов обучения в месяц',
-        '100 ГБ данных',
-        'Полный API доступ',
-        'Приоритетная поддержка',
-        'До 10,000 запросов/месяц',
-        'Расширенная аналитика',
-        'Все интеграции (Telegram, Slack, Discord)',
+        '7B parameter model',
+        '20 training hours per month',
+        '100 GB data',
+        'Full API access',
+        'Priority support',
+        'Up to 10,000 requests/month',
+        'Advanced analytics',
+        'All integrations (Telegram, Slack, Discord)',
         'Fine-tuning + RAG',
-        'Потоковое обучение',
-        'Голосовой ввод/вывод',
-        'Мультиязычность (10+ языков)',
-        'AI-ассистент и автоматизация',
-        'Парсер сайтов',
-        'Интеграция с облаками',
-        'Автоперевод датасетов',
-        'Визуальный редактор данных',
-        'Тепловая карта данных',
-        'Сравнение моделей',
-        'Pay-as-you-go биллинг'
+        'Streaming training',
+        'Voice input/output',
+        'Multilingual (10+ languages)',
+        'AI assistant and automation',
+        'Website parser',
+        'Cloud integration',
+        'Auto dataset translation',
+        'Visual data editor',
+        'Data heatmap',
+        'Model comparison',
+        'Pay-as-you-go billing'
       ],
-      buttonText: 'Выбрать Pro',
+      buttonText: 'Choose Pro',
       popular: true,
       color: 'from-primary-500 to-purple-600'
     },
     {
       name: 'Enterprise',
       price: '299',
-      period: 'в месяц',
-      description: 'Для крупных организаций с высокими требованиями',
+      period: 'per month',
+      description: 'For large organizations with high requirements',
       features: [
-        'Модель 13B параметров',
-        '100 часов обучения в месяц',
-        '1 ТБ данных',
-        'Неограниченный API доступ',
-        'Персональный менеджер',
-        'Неограниченные запросы',
-        'Расширенная аналитика',
-        'Кастомные интеграции',
-        'SLA 99.9%',
-        'Обучение команды',
-        'White-label решения',
-        'Кастомные шаблоны обучения',
-        'Командная работа',
-        'Роли и права доступа',
-        'Общий чат с моделью',
-        'Маркетплейс моделей',
-        'Кастомные инвойсы',
-        'Приоритетная поддержка 24/7',
-        'Персональное обучение',
-        'Кастомные workflows',
-        'AI-редактор датасета',
-        'Генератор тестов',
-        'Контекстное обучение',
-        'Сценарии (workflows)',
-        'Webhooks для внешних систем'
+        '13B parameter model',
+        '100 training hours per month',
+        '1 TB data',
+        'Unlimited API access',
+        'Personal manager',
+        'Unlimited requests',
+        'Advanced analytics',
+        'Custom integrations',
+        '99.9% SLA',
+        'Team training',
+        'White-label solutions',
+        'Custom training templates',
+        'Team collaboration',
+        'Roles and permissions',
+        'Shared model chat',
+        'Model marketplace',
+        'Custom invoices',
+        '24/7 priority support',
+        'Personal training',
+        'Custom workflows',
+        'AI dataset editor',
+        'Test generator',
+        'Contextual learning',
+        'Scenarios (workflows)',
+        'Webhooks for external systems'
       ],
-      buttonText: 'Связаться с нами',
+      buttonText: 'Contact Us',
       popular: false,
       color: 'from-purple-500 to-pink-500'
     }
@@ -103,11 +103,11 @@ const PricingSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Тарифные планы
+            Pricing Plans
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Выберите план, который подходит вашим потребностям. 
-            Все планы включают доступ к API и техническую поддержку.
+            Choose a plan that fits your needs. 
+            All plans include API access and technical support.
           </p>
         </motion.div>
 
@@ -128,7 +128,7 @@ const PricingSection = () => {
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <div className="bg-gradient-to-r from-primary-500 to-purple-600 text-white text-sm font-semibold px-4 py-2 rounded-full flex items-center space-x-2">
                     <Star className="w-4 h-4" />
-                    <span>Популярный</span>
+                    <span>Popular</span>
                   </div>
                 </div>
               )}
@@ -192,10 +192,10 @@ const PricingSection = () => {
           <div className="glass-effect rounded-xl p-6 max-w-4xl mx-auto">
             <div className="flex items-center justify-center space-x-2 mb-4">
               <Zap className="w-5 h-5 text-primary-400" />
-              <span className="text-white font-semibold">Гарантия возврата средств</span>
+              <span className="text-white font-semibold">Money-back Guarantee</span>
             </div>
             <p className="text-gray-300 text-sm">
-              Не удовлетворены результатом? Мы вернем деньги в течение 30 дней без вопросов.
+              Not satisfied with the result? We'll refund your money within 30 days, no questions asked.
             </p>
           </div>
         </motion.div>

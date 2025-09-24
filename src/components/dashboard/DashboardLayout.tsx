@@ -34,17 +34,17 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   }
 
   const navigation = [
-    { name: 'Главная', href: '/dashboard', icon: Home },
-    { name: 'Мои модели', href: '/dashboard/models', icon: Brain },
-    { name: 'Управление данными', href: '/dashboard/data', icon: Database },
-    { name: 'Продвинутое обучение', href: '/dashboard/advanced-training', icon: Zap },
-    { name: 'Чат с моделью', href: '/dashboard/chat', icon: MessageSquare },
-    { name: 'Интеграции', href: '/dashboard/integrations', icon: Bot },
-    { name: 'Аналитика', href: '/dashboard/analytics', icon: BarChart3 },
-    { name: 'AI-ассистент', href: '/dashboard/ai-assistant', icon: Sparkles },
-    { name: 'Бизнес-функции', href: '/dashboard/business', icon: CreditCard },
+    { name: 'Home', href: '/dashboard', icon: Home },
+    { name: 'My Models', href: '/dashboard/models', icon: Brain },
+    { name: 'Data Management', href: '/dashboard/data', icon: Database },
+    { name: 'Advanced Training', href: '/dashboard/advanced-training', icon: Zap },
+    { name: 'Model Chat', href: '/dashboard/chat', icon: MessageSquare },
+    { name: 'Integrations', href: '/dashboard/integrations', icon: Bot },
+    { name: 'Analytics', href: '/dashboard/analytics', icon: BarChart3 },
+    { name: 'AI Assistant', href: '/dashboard/ai-assistant', icon: Sparkles },
+    { name: 'Business Features', href: '/dashboard/business', icon: CreditCard },
     { name: 'API', href: '/dashboard/api', icon: Code },
-    { name: 'Настройки', href: '/dashboard/settings', icon: Settings },
+    { name: 'Settings', href: '/dashboard/settings', icon: Settings },
   ]
 
   return (

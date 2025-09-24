@@ -158,16 +158,16 @@ const Integrations: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto p-6">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Интеграции</h1>
-        <p className="text-gray-600">Подключите вашу модель к внешним сервисам и платформам</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Integrations</h1>
+        <p className="text-gray-600">Connect your model to external services and platforms</p>
       </div>
 
       {/* Tabs */}
       <div className="border-b border-gray-200 mb-8">
         <nav className="-mb-px flex space-x-8">
           {[
-            { id: 'bots', name: 'Боты', icon: ChatBubbleLeftRightIcon },
-            { id: 'plugins', name: 'Плагины', icon: DocumentTextIcon },
+            { id: 'bots', name: 'Bots', icon: ChatBubbleLeftRightIcon },
+            { id: 'plugins', name: 'Plugins', icon: DocumentTextIcon },
             { id: 'api', name: 'API', icon: CodeBracketIcon },
             { id: 'webhooks', name: 'Webhooks', icon: CloudIcon }
           ].map((tab) => (
@@ -199,7 +199,7 @@ const Integrations: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Telegram Bot</h3>
-                  <p className="text-gray-600">Создайте бота за 1 клик</p>
+                  <p className="text-gray-600">Create a bot in 1 click</p>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
@@ -207,7 +207,7 @@ const Integrations: React.FC = () => {
                   botConfig.isActive ? 'bg-green-500' : 'bg-gray-300'
                 }`}></div>
                 <span className="text-sm text-gray-500">
-                  {botConfig.isActive ? 'Активен' : 'Неактивен'}
+                  {botConfig.isActive ? 'Active' : 'Inactive'}
                 </span>
               </div>
             </div>
@@ -216,7 +216,7 @@ const Integrations: React.FC = () => {
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Название бота
+                    Bot Name
                   </label>
                   <input
                     type="text"
@@ -240,14 +240,14 @@ const Integrations: React.FC = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Модель
+                    Model
                   </label>
                   <select
                     value={botConfig.modelId}
                     onChange={(e) => setBotConfig({ ...botConfig, modelId: e.target.value })}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   >
-                    <option value="">Выберите модель</option>
+                    <option value="">Select model</option>
                     <option value="legal-assistant">Legal Assistant v2.1</option>
                     <option value="company-kb">Company Knowledge Base</option>
                     <option value="tech-support">Technical Support</option>
@@ -257,7 +257,7 @@ const Integrations: React.FC = () => {
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Язык
+                    Language
                   </label>
                   <select
                     value={botConfig.language}
@@ -266,7 +266,7 @@ const Integrations: React.FC = () => {
                   >
                     <option value="ru">Русский</option>
                     <option value="en">English</option>
-                    <option value="auto">Автоопределение</option>
+                    <option value="auto">Auto-detect</option>
                   </select>
                 </div>
                 <div>
